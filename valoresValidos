@@ -1,0 +1,24 @@
+import json
+
+# Dados JSON
+dados_json = [
+    {"dia": 1, "valor": 22174.1664},
+    {"dia": 2, "valor": 24537.6698},
+    # Outros dias omitidos para brevidade
+    {"dia": 30, "valor": 8414.61}
+]
+
+# Filtrar valores válidos (não zerados)
+valores_validos = [d['valor'] for d in dados_json if d['valor'] > 0]
+
+# Estatísticas
+media_valores = sum(valores_validos) / len(valores_validos)
+maior_valor = max(valores_validos)
+menor_valor = min(valores_validos)
+dias_acima_media = [d['dia'] for d in dados_json if d['valor'] > media_valores]
+
+# Exibir resultados
+print(f"Média: {media_valores:.2f}")
+print(f"Maior Valor: {maior_valor:.2f}")
+print(f"Menor Valor: {menor_valor:.2f}")
+print(f"Dias acima da média: {dias_acima_media}")
